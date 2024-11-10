@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Image Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="fixed w-full bg-transparent transition duration-300 ease-in-out" id="header">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="text-2xl font-bold text-teal-600">ImageGen</div>
+            <nav class="hidden md:flex space-x-6">
+                <a class="text-gray-800 hover:text-teal-600" href="#features">Features</a>
+                <a class="text-gray-800 hover:text-teal-600" href="#about">About</a>
+                <a class="text-gray-800 hover:text-teal-600" href="#contact">Contact</a>
+            </nav>
+            <div class="md:hidden">
+                <button class="text-gray-800 focus:outline-none" id="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
+            <a class="block px-4 py-2 text-gray-800 hover:text-teal-600" href="#features">Features</a>
+            <a class="block px-4 py-2 text-gray-800 hover:text-teal-600" href="#about">About</a>
+            <a class="block px-4 py-2 text-gray-800 hover:text-teal-600" href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080');">
+        <div class="text-center px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Create Stunning Images in Seconds</h1>
+            <p class="text-lg md:text-xl text-white mt-4">Enter your prompt and let our AI do the magic</p>
+            <div class="mt-8">
+                <input id="promptInput" class="w-full md:w-2/3 p-4 rounded-lg shadow-lg focus:outline-none" placeholder="Enter your prompt here..." type="text"/>
+                <button id="generateBtn" class="mt-4 px-8 py-4 bg-teal-600 text-white rounded-lg shadow-lg hover:bg-teal-700 transition duration-300">Generate Image</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generated Image Section -->
+    <section class="py-20 bg-white" id="generated-image">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="text-4xl font-bold text-gray-800">Your Generated Images</h2>
+            <div class="relative mt-8">
+                <div class="big-image mb-8">
+                    <img id="bigImage" alt="Generated image based on user prompt" class="mx-auto rounded-lg shadow-lg cursor-pointer" src="https://placehold.co/800x600" onclick="openModal(this.src)"/>
+                </div>
+                <div class="carousel flex overflow-x-auto snap-x snap-mandatory" id="carousel">
+                    <!-- Carousel items will be added here dynamically -->
+                </div>
+                <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full" id="prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full" id="next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section, About Section, and Footer remain the same -->
+
+    <!-- Modal for Fullscreen Image -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+      </html>
